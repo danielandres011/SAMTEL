@@ -50,7 +50,7 @@ namespace RESERVAS.API.Controllers
                 .Where(l => l.DELETED == null)
                 .Where(l => l.ESTADO == true)
                 .Where(l => l.ID_HOTEL == hotel)
-                .Where(l => l.CHECKIN == fecha)
+                .Where(l => l.CHECKIN <= fecha && l.CHECKOUT > fecha)
                 .ToListAsync();
             if (reservas.Count() < hotel.HABITACIONES)
             {
